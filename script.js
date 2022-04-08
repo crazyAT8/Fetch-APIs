@@ -17,33 +17,27 @@ fetch('https://reqres.in/api/users', {                                  1. first
 */
 // Ex.1
 console.log(fetch('https://reqres.in/api/users'))
-// Returns "Promise {<pending>}"
 
-//Fetch is promised based
-    // which means that we can use async await
-        // or .then or .catch with it
-
+// Ex.2
 fetch('https://reqres.in/api/users')
     .then(res => console.log(res) )
 
+// Ex. 3
 fetch('https://reqres.in/api/users')
     .then(res => res.json())
     .then(data => console.log(data))
 
-// Lets say we want to get info on a single user
-    // in this example, user 23- which does not exsist 
+// Ex. 4 
 fetch('https://reqres.in/api/users/23')
     .then(res => res.json())
     .then(data => console.log(data))
-// returns a 404 error
-    // you would think that since we have a 404 error
-        // it would endup in a catch statement- like:
-    .catch(error => console.log(ERROR))
-            // but we are not getting any ERROR text
-                // this is bc fetch will always work
-                    // except if you have no internet signal
-                        // fetch always succeeds unless there is something wrong with the fetch itself
-                            // not with the API it is calling
+
+// Ex. 5
+fetch('https://reqres.in/api/users/23')
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log("ERROR"))
+
 // Ex. 6
 fetch('https://reqres.in/api/users/23')
     .then(res => {

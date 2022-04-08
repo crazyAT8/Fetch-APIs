@@ -34,12 +34,64 @@ syntax:
                 // what ever info you want
                 // what you want to do with the info
             }
+- the return 
+     "Promise {<pending>}"
+        Fetch is promised based
+            which means that we can use async await
+                or .then or .catch with it
+// Ex. 2
+- next we are going to add
+    .then()
+        with a response object inside "res"
+            and then log out the response
+                and thats exactly what shows in the console log
+- we have
+        body: ReadableStream----------> all of our data
+        bodyUsed: false
+        headers: Headers {}
+        ok: true --------------------------> success
+        redirected: false
+        status: 200-----------------------> success
+        statusText: ""---------------------> empty
+        type: "cors"
+        url: "https://reqres.in/api/users"
+- but this body of data 
+        isn't accessible directly from the 
+            response object
+// Ex.3
+- we need to call a method
+    on it to convert this response to
+        JSON, bc we are using JSON data
+            so after the res object
+                deliver (=>) it to a another
+                    res.json() object
+                        which will return another promise
+                            and we us .then again
+                                with our actual data 
+                                    passed to the console
+                                        which calls the data
+- Returns all the users 
+    in an array
+        each user is its own object
 
-
-
-
-
-
+// Ex. 4
+- Lets say we want to get info on a single user
+    in this example we will get the info
+        of a single user that does not exist
+            which will return a 404 status back
+                but our GET request actually happened
+                    still ran our successful dot then code
+                        even though we had a 404 error
+// Ex. 5
+- you would think that sense 
+    404 is an error that it would end up
+        in a catch statement
+- but we are not getting any ERROR text
+    this is bc fetch will always work
+        except if you have no internet signal
+            fetch always succeeds unless 
+                there is something wrong with the fetch itself
+                    not with the API it is calling
 // Ex.6
 - So what we need to do is to put  responses
     inside the return
@@ -69,6 +121,7 @@ syntax:
         and we are going to pass that as JSON
 - which won't work 
     bc the body didn't get sent up correctly
+
 // Ex.9
 - the way that fetch works
     is that you actually need to send it JSON
@@ -78,6 +131,7 @@ syntax:
     thats bc you also have to set the headers
         essentially you need to tell fetch 
             that you're going to be passing JSON
+            
 //10
 - so create a header section
     under which define the content type as
