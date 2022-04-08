@@ -1,0 +1,95 @@
+URL: https://www.youtube.com/watch?v=cuEtnrL9-H0&list=PLBx8Eyw3km2no5C_A2HLY5Z9FD-rGtHCv&index=8
+Title: Learn Fetch API in 6 Minutes
+start: 5:46am 4/5/22
+end:
+
+Accessing data from an API 
+    is one of the most common things 
+        you will do in web development
+            and the way to access APIs is with Fetch
+Fetch is a function built into JavaScript 
+    that allows you to query any
+        URL/API to get back data
+The most important part is that fetch is    
+    asynchronous so it will run in the background
+        and let you know when it finishes using promises
+In this file 
+    we will go through
+        exactly how to use fetch
+            and all of the common mistakes people make
+                using fetch so we can get up and running 
+                    in just six minutes
+//Setup Test
+- just creat a regular html page with a 
+    javascript script tag at the bottom of the body
+        src it to you second page which is .js
+- console.log("Hello")
+    to make sure its working
+
+// Ex. 1
+- console log a fetch
+    first you need to pass it a URL as property 1
+syntax:
+            fetch("yourURLfromWhereYouHopeToGetInfoFrom") {
+                // what ever info you want
+                // what you want to do with the info
+            }
+
+
+
+
+
+
+// Ex.6
+- So what we need to do is to put  responses
+    inside the return
+        to make sure the fetch is good or bad
+
+// Ex. 7
+- Take the 23 away
+     and it is now successful
+
+// Ex. 8
+- Most of the time with Fetch
+    you want to do more then just get data from the server
+        you actually want to post data to a server
+            update and delete data
+- In order to do all this
+    we are going to have to use the option section 
+        of the Fetch Method    
+            and the first thing that we have to do is to    
+                pass in a method
+                    this can be either "Get", "Post", "Put", "Delete"
+                    (one of the HTTP methods) 
+- In this case we will use a Post request
+    we are going to create a new user at this API
+        just by doing a post request
+- Then we need to pass the data for that user
+    which is going to go inside of the body
+        and we are going to pass that as JSON
+- which won't work 
+    bc the body didn't get sent up correctly
+// Ex.9
+- the way that fetch works
+    is that you actually need to send it JSON
+        so do JSON.stringify
+            and stringify the object you are passing it
+- which is still not working
+    thats bc you also have to set the headers
+        essentially you need to tell fetch 
+            that you're going to be passing JSON
+//10
+- so create a header section
+    under which define the content type as
+        application/json
+
+- Main thing that you need to remember
+    when using anything with JSON data
+        that your posting to the server
+            you need to be sure to set the header 
+                to the correct content type of application JSON
+                    and you also need to stringify the body
+                        so you can't just send a JS object
+                            you have to convert it to a JSON string
+
+
